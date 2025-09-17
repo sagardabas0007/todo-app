@@ -33,8 +33,8 @@ greeting.textContent = message;
 
 let totalCount = 0;
 let doneCount = 0;
-let progressCount = 0;
 let activeCount = 0;
+let progressCount = Math.round(doneCount / totalCount * 100);
 
 
 addBtn.addEventListener("click", () => {
@@ -53,6 +53,7 @@ addBtn.addEventListener("click", () => {
         <li>${input}</li>
         </ul>`;
 
+
         let li = document.querySelectorAll("li");
 
         li.forEach((val) => {
@@ -63,10 +64,14 @@ addBtn.addEventListener("click", () => {
 
                 done.textContent = doneCount;
                 active.textContent = activeCount;
+                progress.textContent = progressCount
+                
+                
         })
         })
 
     }
+    
 })
 
 
