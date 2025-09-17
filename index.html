@@ -7,6 +7,85 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <div class="main">
+      <!-- this is the hero div with add task button -->
+      <div class="hero">
+        <!-- the date and day -->
+        <div class="time">
+          <img
+            class="time-img"
+            src="./assets/calendar-svgrepo-com.svg"
+            alt="broken image"
+          />
+          <p id="current-time"></p>
+        </div>
+
+        <div class="greeting">
+          <h1 class="heading"></h1>
+        </div>
+      </div>
+
+      <div class="get-productive">
+        <img
+          class="stars-img"
+          src="./assets/stars-svgrepo-com.svg"
+          alt="broken image"
+        />
+        <p class="productive">Let's get productive today</p>
+        <img
+          class="stars-img"
+          src="./assets/stars-svgrepo-com.svg"
+          alt="broken iamge"
+        />
+      </div>
+
+      <!-- this is the count storage -->
+      <div class="details">
+        <div class="total" id="total-tasks">
+          <img class="img" src="./assets/Total.png" alt="/" />
+          <div class="count">
+            <h1 id="total-count" class="count-el">0</h1>
+            <p class="msg-display">total</p>
+          </div>
+        </div>
+
+        <div class="total" id="total-tasks">
+          <img class="done-img" src="./assets/Check.png" alt="/" />
+          <div class="count">
+            <h1 id="done-count" class="count-el">0</h1>
+            <p class="msg-display">Done</p>
+          </div>
+        </div>
+
+        <div class="total" id="total-tasks">
+          <img class="img" src="./assets/Active.png" alt="/" />
+          <div class="count">
+            <h1 id="active-count" class="count-el">0</h1>
+            <p class="msg-display">Active</p>
+          </div>
+        </div>
+
+        <div class="total" id="total-tasks">
+          <img class="img" src="./assets/rising.png" alt="/" />
+          <div class="count">
+            <h1 id="Progress-count" class="count-el">0</h1>
+            <p class="msg-display">progress</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- add tasks here -->
+      <div class="task-section">
+        <input type="text" placeholder="Add tasks" class="input" id="input" />
+        <button id="add">
+          <img class="add-img" src="./assets/add.png" alt="/" />
+          <p>add task</p>
+        </button>
+      </div>
+
+      <!-- this is the section where tasks will be displayed -->
+      <div class="showcase-tasks"></div>
+    </div>
     <script src="index.js"></script>
   </body>
 </html>
