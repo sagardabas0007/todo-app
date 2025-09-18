@@ -3,7 +3,7 @@ const greeting = document.querySelector(".heading");
 const total = document.querySelector("#total-count");
 const done = document.querySelector("#done-count");
 const active = document.querySelector("#active-count");
-const progress = document.querySelector("#progress-count");
+const progress = document.querySelector("#Progress-count");
 const addBtn = document.querySelector("#add");
 const inp = document.querySelector("#input");
 const task = document.querySelector(".showcase-tasks");
@@ -11,72 +11,67 @@ const task = document.querySelector(".showcase-tasks");
 
 // this is to set a dynamic day and date
 const today = new Date();
-const days = ["Monday", "Tuesday", "Wednsday", "Thursday", "Friday", "Saterday", "Sunday"];
+const days = [
+  "Monday",
+  "Tuesday",
+  "Wednsday",
+  "Thursday",
+  "Friday",
+  "Saterday",
+  "Sunday",
+];
 const todayDay = days[today.getDay()];
 const date = today.getDate();
 const time = today.getHours();
 t.textContent = `${todayDay}, ${date}`;
 
 
+
 // display greeting
 let message = "";
 if (time < 12) {
-    message = "Good Morning";
+  message = "Good Morning";
 } else if (time < 18) {
-    message = "Good afternoon";
+  message = "Good afternoon";
 } else {
-    message = "good evening";
+  message = "good evening";
 }
 greeting.textContent = message;
-
-
 
 let totalCount = 0;
 let doneCount = 0;
 let activeCount = 0;
-let progressCount = Math.round(doneCount / totalCount * 100);
-
+let percentageCount = (doneCount / totalCount) * 100;
 
 addBtn.addEventListener("click", () => {
-    let input = inp.value.trim();
+  let input = inp.value.trim();
 
-    if (input) {
-        totalCount++;
-        activeCount++;
+  if (input) {
+    totalCount++;
+    activeCount++;
 
-        total.textContent = totalCount;
-        active.textContent = activeCount;
+    total.textContent = totalCount;
+    active.textContent = activeCount;
 
-        inp.value = "";
+    inp.value = "";
 
-        task.innerHTML += `<ul>
+    task.innerHTML += `<ul>
         <li>${input}</li>
         </ul>`;
 
+    let li = document.querySelectorAll("li");
 
-        let li = document.querySelectorAll("li");
+    li.forEach((val) => {
+      val.addEventListener("click", () => {
+        val.style.textDecoration = "line-through";
+        doneCount++;
+        activeCount--;
 
-        li.forEach((val) => {
-            val.addEventListener("click", () => {
-            val.style.textDecoration = "line-through";
-                doneCount++;
-                activeCount--;
-
-                done.textContent = doneCount;
-                active.textContent = activeCount;
-                progress.textContent = progressCount
-                
-                
-        })
-        })
-
-    }
-    
-})
-
-
-
-
-
-
-
+        done.textContent = doneCount;
+        active.textContent = activeCount;
+        let percentageCount = Math.round((doneCount / totalCount) * 100);
+      progress.textContent = `${percentageCount}%`;
+      });
+    });
+  }
+});
